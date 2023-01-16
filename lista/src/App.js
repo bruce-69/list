@@ -9,14 +9,14 @@ useEffect(() => {
 
 
 function App() {
-  let [list, setList] = useState([]);
+  let [list, setList] = useState(["tarefa1",""]);
   let [newlist, setNewlist] = useState("");
   return (
 
 
     <>
       <input value={setNewlist} onChange={value => setNewlist(value.target.value)} type="text" />
-      <button onClick={() => setNewlist()} >NEW</button>
+      <button onClick={() => addNewlist()} >NEW</button>
       <ul>
         {list.map(list, index => (
           <li>
@@ -30,15 +30,16 @@ function App() {
     </>
   );
 
-  function addNewitem() {
+  function addNewlist() {
     setList([...list, newlist]);
+    setNewlist("");
   }
 
   function delitelist(index) {
-    let tenporario = [...list]
-    tenporario.splice(index, 1)
+    let tenporario = [...list];
+    tenporario.splice(index, 1);
 
-    setList(tenporario)
+    setList(tenporario);
   }
 
 }
